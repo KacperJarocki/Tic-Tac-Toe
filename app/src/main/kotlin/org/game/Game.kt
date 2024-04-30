@@ -2,13 +2,19 @@ package org.game
 
 class Game(Size:Int) {
     val Board:Array<Array<Int>> = Array(Size) { Array(Size) { 0 } };
+    var whoseTurn:Boolean = false;
     fun putX(i: Int, i1: Int) {
         Board[i][i1] = 1
+        whoseTurn = false;
     }
-
+    fun whoseTurnIsIt():Char{
+        return if(whoseTurn) 'X' else 'O'
+    }
     fun putO(i: Int, i1: Int) {
         Board[i][i1] = 2
+        whoseTurn = true;
     }
+    fun getIndex(i: Int, i1: Int):Char = if(Board[i][i1] == 1) 'X' else if(Board[i][i1] == 2) 'O' else ' '
 
     fun restart() {
       for(i in 0 until Board.size){
@@ -34,4 +40,5 @@ class Game(Size:Int) {
         }
         return 0
     }
+
 }

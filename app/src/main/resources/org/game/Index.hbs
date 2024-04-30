@@ -2,69 +2,65 @@
 <head>
     <script src="/htmx.min.js"></script>
     <script src="/hyperscript.min.js"></script>
- <style>
-    #game {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 20px;
-    }
+    <style>
+        #game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
 
-    #board {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin: 20px;
-    }
+        #board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px;
+        }
 
-    #row1, #row2, #row3 {
-        display: flex;
-        justify-content: space-between;
-    }
+        .cell {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            box-sizing: border-box;
+        }
 
-    #board div {
-        width: 50px;
-        height: 50px;
-        border: 1px solid black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 2em;
-    }
+        #status {
+            margin-top: 20px;
+            text-align: center;
+        }
 
-    #status {
-        margin-top: 20px;
-        text-align: center;
-    }
-
-    #controls {
-        margin-top: 20px;
-        text-align: center;
-    }
-</style>
+        #controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <div id="game">
     <div id="board">
         <div id="row1">
-            <div id="cell1" hx-get="/clicked" hx-trigger="click">     </div>
-            <div id="cell2">     </div>
-            <div id="cell3">     </div>
+            <div class="cell" id="cell1" hx-get="/clicked1" hx-trigger="click once">     </div>
+            <div class="cell" id="cell2" hx-get="/clicked2" hx-trigger="click once">     </div>
+            <div class="cell" id="cell3"hx-get="/clicked3" hx-trigger="click once" >     </div>
         </div>
         <div id="row2">
-            <div id="cell4">     </div>
-            <div id="cell5">     </div>
-            <div id="cell6">     </div>
+            <div class="cell" id="cell4" hx-get="/clicked4" hx-trigger="click once">     </div>
+            <div class="cell" id="cell5" hx-get="/clicked5" hx-trigger="click once">     </div>
+            <div class="cell" id="cell6" hx-get="/clicked6" hx-trigger="click once">     </div>
         </div>
         <div id="row3">
-            <div id="cell7">     </div>
-            <div id="cell8">     </div>
-            <div id="cell9">     </div>
+            <div class="cell" id="cell7" hx-get="/clicked7" hx-trigger="click once">     </div>
+            <div class="cell" id="cell8" hx-get="/clicked8" hx-trigger="click once">     </div>
+            <div class="cell" id="cell9" hx-get="/clicked9" hx-trigger="click once">     </div>
         </div>
     </div>
-    <div id="status">Whose turn</div>
+    <div id="status" hx-get="/whosturn" hx-trigger="every 1s">Whose turn</div>
     <div id="controls">
-        <button id="reset">Reset</button>
+        <button id="reset" hx-get="/reset">Reset</button>
     </div>
 </div>
 </body>

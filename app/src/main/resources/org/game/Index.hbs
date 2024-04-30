@@ -1,0 +1,71 @@
+<html>
+<head>
+    <script src="/htmx.min.js"></script>
+    <script src="/hyperscript.min.js"></script>
+ <style>
+    #game {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+    }
+
+    #board {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 20px;
+    }
+
+    #row1, #row2, #row3 {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #board div {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+    }
+
+    #status {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    #controls {
+        margin-top: 20px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+<div id="game">
+    <div id="board">
+        <div id="row1">
+            <div id="cell1" hx-get="/clicked" hx-trigger="click">     </div>
+            <div id="cell2">     </div>
+            <div id="cell3">     </div>
+        </div>
+        <div id="row2">
+            <div id="cell4">     </div>
+            <div id="cell5">     </div>
+            <div id="cell6">     </div>
+        </div>
+        <div id="row3">
+            <div id="cell7">     </div>
+            <div id="cell8">     </div>
+            <div id="cell9">     </div>
+        </div>
+    </div>
+    <div id="status">Whose turn</div>
+    <div id="controls">
+        <button id="reset">Reset</button>
+    </div>
+</div>
+</body>
+</html>

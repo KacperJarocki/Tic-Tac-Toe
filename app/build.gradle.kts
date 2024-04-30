@@ -21,11 +21,9 @@ repositories {
 
 dependencies {
     // This dependency is used by the application.
-    implementation(libs.guava)
-    implementation(platform("org.http4k:http4k-bom:5.14.4.0"))
-    implementation("org.http4k:http4k-core")
-    implementation("org.http4k:http4k-server-undertow")
-    implementation("org.http4k:http4k-client-apache")
+    implementation(platform("org.http4k:http4k-bom:5.17.0.0"))
+    implementation("org.http4k:http4k-htmx")
+    implementation("org.http4k:http4k-template-handlebars") // Handlebars
 }
 
 testing {

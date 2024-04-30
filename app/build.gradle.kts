@@ -22,6 +22,10 @@ repositories {
 dependencies {
     // This dependency is used by the application.
     implementation(libs.guava)
+    implementation(platform("org.http4k:http4k-bom:5.14.4.0"))
+    implementation("org.http4k:http4k-core")
+    implementation("org.http4k:http4k-server-undertow")
+    implementation("org.http4k:http4k-client-apache")
 }
 
 testing {
@@ -43,5 +47,5 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = "org.example.AppKt"
+    mainClass = "org.game.AppKt"
 }
